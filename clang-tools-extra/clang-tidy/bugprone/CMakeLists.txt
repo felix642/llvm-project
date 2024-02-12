@@ -5,6 +5,7 @@ set(LLVM_LINK_COMPONENTS
 
 add_clang_library(clangTidyBugproneModule
   ArgumentCommentCheck.cpp
+  ArraySizeCheck.cpp
   AssertSideEffectCheck.cpp
   AssignmentInIfConditionCheck.cpp
   BadSignalToKillThreadCheck.cpp

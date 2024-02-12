@@ -138,6 +138,11 @@ Improvements to clang-tidy
 New checks
 ^^^^^^^^^^
 
+- New :doc:`bugprone-array-size
+  <clang-tidy/checks/bugprone/array-size>` check.
+
+  FIXME: add release notes.
+
 - New :doc:`bugprone-casting-through-void
   <clang-tidy/checks/bugprone/casting-through-void>` check.
 
