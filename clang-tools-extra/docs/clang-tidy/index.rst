@@ -329,8 +329,10 @@ An overview of all the command-line options:
                                    example, to place the correct user name in
                                    TODO() comments in the relevant check.
     WarningsAsErrors             - Same as '--warnings-as-errors'.
-    CompilationArgsToRemoveRegex - List of arguments to remove from the command
-                                   line sent to the compiler.
+    RemovedArgs                  - List of arguments to remove from the command
+                                   line sent to the compiler. Please note that 
+                                   removing arguments from the command line 
+                                   might lead to false positive or negatives. 
 
     The effective configuration can be inspected using --dump-config:
 
@@ -340,7 +342,7 @@ An overview of all the command-line options:
       WarningsAsErrors:    ''
       HeaderFileExtensions:         ['', 'h','hh','hpp','hxx']
       ImplementationFileExtensions: ['c','cc','cpp','cxx']
-      CompilationArgsToRemoveRegex: ['-Werror', '-f.*']
+      RemovedArgs: ['-Werror']
       HeaderFilterRegex:   ''
       FormatStyle:         none
       InheritParentConfig: true

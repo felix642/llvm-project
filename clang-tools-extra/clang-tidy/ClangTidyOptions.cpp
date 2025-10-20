@@ -227,8 +227,7 @@ template <> struct MappingTraits<ClangTidyOptions> {
                    Options.ExcludeHeaderFilterRegex);
     IO.mapOptional("FormatStyle", Options.FormatStyle);
     IO.mapOptional("User", Options.User);
-    IO.mapOptional("CompilationArgsToRemoveRegex",
-                   Options.CompilationArgsToRemoveRegex);
+    IO.mapOptional("RemovedArgs", Options.RemovedArgs);
     IO.mapOptional("CheckOptions", Options.CheckOptions);
     IO.mapOptional("ExtraArgs", Options.ExtraArgs);
     IO.mapOptional("ExtraArgsBefore", Options.ExtraArgsBefore);
@@ -254,7 +253,7 @@ ClangTidyOptions ClangTidyOptions::getDefaults() {
   Options.SystemHeaders = false;
   Options.FormatStyle = "none";
   Options.User = std::nullopt;
-  Options.CompilationArgsToRemoveRegex = std::nullopt;
+  Options.RemovedArgs = std::nullopt;
   for (const ClangTidyModuleRegistry::entry &Module :
        ClangTidyModuleRegistry::entries())
     Options.mergeWith(Module.instantiate()->getModuleOptions(), 0);
@@ -295,8 +294,7 @@ ClangTidyOptions &ClangTidyOptions::mergeWith(const ClangTidyOptions &Other,
   overrideValue(SystemHeaders, Other.SystemHeaders);
   overrideValue(FormatStyle, Other.FormatStyle);
   overrideValue(User, Other.User);
-  overrideValue(CompilationArgsToRemoveRegex,
-                Other.CompilationArgsToRemoveRegex);
+  mergeVectors(RemovedArgs, Other.RemovedArgs);
   overrideValue(UseColor, Other.UseColor);
   mergeVectors(ExtraArgs, Other.ExtraArgs);
   mergeVectors(ExtraArgsBefore, Other.ExtraArgsBefore);

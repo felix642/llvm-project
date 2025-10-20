@@ -132,12 +132,7 @@ Improvements to clang-tidy
   when run over C files. If ``-std`` is not specified, it defaults to
   ``c99-or-later``.
 
-<<<<<<< HEAD
 - :program:`clang-tidy` no longer attempts to analyze code from system headers
-=======
-<<<<<<< HEAD
-- :program:`clang-tidy` no longer attemps to analyze code from system headers
->>>>>>> 64f91e7543e8 (fixup! [clang-tidy] New option to remove arguments from the command line)
   by default, greatly improving performance. This behavior is disabled if the
   `SystemHeaders` option is enabled.
 

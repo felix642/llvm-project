@@ -114,7 +114,7 @@ struct ClangTidyOptions {
 
   /// \brief Remove command line arguments sent to the compiler matching this
   /// regex.
-  std::optional<std::vector<std::string>> CompilationArgsToRemoveRegex;
+  std::optional<std::vector<std::string>> RemovedArgs;
 
   /// Helper structure for storing option value with priority of the value.
   struct ClangTidyValue {
